@@ -1,0 +1,11 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=APPSRVCOV.barnabasfund.net;Database=TheWorld;User ID=WorldUser;password=Gd3£%ESS1;MultipleActiveResultSets=true"
+  },
+  "MailSettings": {
+    "ToAddress": "Shawn@wildermuth.com"
+  },
+  "Keys": {
+    "BingKey": "DONTEVERPUTKEYSINSOURCECONTROL"
+  }
+}
