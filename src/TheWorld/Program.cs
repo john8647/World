@@ -17,7 +17,6 @@ namespace TheWorld
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-            System.Console.WriteLine("S");
             host.Run();
         }
     }
