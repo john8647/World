@@ -14,6 +14,7 @@ using TheWorld.Models;
 using TheWorld.Services;
 using TheWorld.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TheWorld
 {
@@ -59,7 +60,13 @@ namespace TheWorld
 
       services.AddLogging();
 
-      services.AddMvc()
+      services.AddMvc(config =>
+      {
+          if (_env.IsProduction())
+          {
+              config.Filters.Add(new RequireHttpsAttribute());
+          }
+      })
         .AddJsonOptions(config =>
         {
           config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
