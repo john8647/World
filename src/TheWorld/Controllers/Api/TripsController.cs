@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TheWorld.Models;
 using TheWorld.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TheWorld.Controllers.Api
 {
   [Route("api/trips")]
+  [Authorize]
   public class TripsController : Controller
   {
     private ILogger<TripsController> _logger;
@@ -28,7 +30,7 @@ namespace TheWorld.Controllers.Api
     {
       try
       {
-        var results = _repository.GetAllTrips();
+        var results = _repository.GetTripsByUsername(this.User.Identity.Name);
 
         return Ok(Mapper.Map<IEnumerable<TripViewModel>>(results));
       }

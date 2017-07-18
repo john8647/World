@@ -49,7 +49,25 @@ namespace TheWorld.Models
         .FirstOrDefault();
     }
 
-    public async Task<bool> SaveChangesAsync()
+    public Trip GetUserTripByName(string tripName, string username)
+    {
+            return _context.Trips
+                    .Include(t => t.Stops)
+                    .Where(t => t.Name == tripName && t.UserName == username)
+                    .FirstOrDefault();
+    }
+
+        public IEnumerable<Trip> GetTripsByUsername(string name)
+    {
+        _logger.LogInformation("Getting trips for specific user");
+            return _context
+                    .Trips
+                    .Include(t => t.Stops)
+                    .Where(t => t.UserName == name)
+                    .ToList();
+        }
+
+        public async Task<bool> SaveChangesAsync()
     {
       return (await _context.SaveChangesAsync()) > 0;
     }
