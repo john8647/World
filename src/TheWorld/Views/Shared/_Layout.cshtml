@@ -21,17 +21,21 @@
           <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
           <span id="username">@User.Identity.Name</span>
       }
-    <ul class="nav">
-      <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
-      <li><a asp-controller="App" asp-action="About">About</a></li>
-      <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <li><a asp-controller="App" asp-action="Trips">My Trips</a></li>
-            <li><a asp-controller="Auth" asp-action="Logout">LOG OUT</a></li>
-        }
+      <ul class="nav">
+          <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+          <li><a asp-controller="App" asp-action="About">About</a></li>
+          <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+          @if (User.Identity.IsAuthenticated)
+          {
+              <li><a asp-controller="App" asp-action="Trips">My Trips</a></li>
+              <li><a asp-controller="Auth" asp-action="Logout">Log Out</a></li>
+          }
+          else
+          {
+            <li><a asp-controller="Auth" asp-action="Login">Log In</a></li>
+          }
 
-    </ul>
+      </ul>
   </div>
 
   <div id="wrapper">

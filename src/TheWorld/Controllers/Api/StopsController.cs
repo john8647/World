@@ -70,7 +70,7 @@ namespace TheWorld.Controllers.Api
             newStop.Longitude = result.Longitude;
 
             // Save to the Database
-            _repository.AddStop(tripName, newStop);
+            _repository.AddStop(tripName, newStop, User.Identity.Name);
 
             if (await _repository.SaveChangesAsync())
             {
