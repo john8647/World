@@ -49,7 +49,8 @@ namespace TheWorld.Controllers.Api
       {
         // Save to the Database
         var newTrip = Mapper.Map<Trip>(theTrip);
-        _repository.AddTrip(newTrip);
+                newTrip.UserName = User.Identity.Name;
+                _repository.AddTrip(newTrip);
 
         if (await _repository.SaveChangesAsync())
         {
