@@ -1,5 +1,4 @@
-﻿@model IEnumerable<TheWorld.Models.Trip>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 @section Scripts {
@@ -8,22 +7,13 @@
     <script src="~/js/simpleControls.js"></script>
     <script src="~/js/app-trips.js"></script>
     <script src="~/js/tripsController.js"></script>
+    <script src="~/js/tripEditorController.js"></script>
 }
 <div class="row" ng-app="app-trips">
 
   <div ng-view></div>
 
 
-    <div class="col-md-6">
-        <h2>The Map</h2>
 
-        <ul>
-            @foreach (var item in Model)
-            {
-                <li>@item.Name : @item.DateCreated.ToString("d")</li>
-            }
-        </ul>
-
-    </div>
 
 </div>
