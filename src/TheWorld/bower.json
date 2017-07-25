@@ -10,7 +10,8 @@
     "popper.js": "1.9.5",
     "font-awesome": "~4.7.0",
     "bootswatch": "3.3.5+2",
-    "angular": "1.5.7"
+    "angular": "1.5.7",
+    "angular-route": "1.5.7"
   },
   "resolutions": {
     "jquery-validation": ">=1.16"
